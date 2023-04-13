@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function() {
   const form = document.querySelector('form');  // form object for referencing form markup in index.html
   const popularGenres = ['fiction', 'nonfiction', 'mystery', 'romance', 'thriller', 'fantasy', 'science_fiction', 'history', 'biography', 'business', 'self-help', 'horror', 'comics', 'young_adult', 'children', 'travel', 'poetry', 'cooking', 'art', 'music', 'sports', 'religion', 'philosophy', 'science', 'nature', 'technology'];  // popularGenres hardcoded array used for randomizing displayed genres on Home Page
 
+  const resultLimit = 15;  // access point to change results limit across all website fetches
+  
   // function renders a 'bookshelf' containing a horizontally scrollable lineup of book covers fetched based on the genre passed into the function
   function createGenreSection(genre) {
     // create a div object with class named "genre + (passed genre)"
@@ -25,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
     main.appendChild(genreDiv);
 
     // fetch a list of books based on passed genre
-    fetch(`https://openlibrary.org/subjects/${genre}.json?limit=10`)
+    fetch(`https://openlibrary.org/subjects/${genre}.json?limit=${resultLimit}`)
       .then(response => response.json())
       .then(data => {
         data.works.forEach(work => {
@@ -77,12 +79,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // creates result listing of fetched books when selected search type is 'title', overwriting main
     if (type === 'title') {
-      response = await fetch(`https://openlibrary.org/search.json?title=${searchKey}&limit=10`);
+      response = await fetch(`https://openlibrary.org/search.json?title=${searchKey}&limit=${resultLimit}`);
       data = await response.json();
       main.innerHTML = '';
       if (data.numFound > 0) {
         let html = '';
-        for (let i = 0; (i < 10 && i < data.numFound); i++) {
+        for (let i = 0; (i < resultLimit && i < data.numFound); i++) {
           const book = data.docs[i];
           let works = await fetch(`https://openlibrary.org${book.key}.json`);
           let detail = await works.json();
@@ -119,12 +121,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // creates result listing of fetched authors when selected search type is 'author', overwriting main
     if (type === 'author') {
-      response = await fetch(`https://openlibrary.org/search/authors.json?q=${searchKey}&limit=10`);
+      response = await fetch(`https://openlibrary.org/search/authors.json?q=${searchKey}&limit=${resultLimit}`);
       data = await response.json();
       main.innerHTML = '';
       if (data.numFound > 0) {
         let html = '';
-        for (let i = 0; (i < 10 && i < data.numFound); i++) {
+        for (let i = 0; (i < resultLimit && i < data.numFound); i++) {
           const author = data.docs[i];
           let authorInfo = await fetch(`https://openlibrary.org/authors/${author.key}.json`);
           let detail = await authorInfo.json();
@@ -161,12 +163,12 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // creates result listing of fetched books when selected search type is 'subject', overwriting main
     if (type === 'subject') {
-      response = await fetch(`https://openlibrary.org/search.json?subject=${searchKey}&limit=10`);
+      response = await fetch(`https://openlibrary.org/search.json?subject=${searchKey}&limit=${resultLimit}`);
       data = await response.json();
       main.innerHTML = '';
       if (data.numFound > 0) {
         let html = '';
-        for (let i = 0; (i < 10 && i < data.numFound); i++) {
+        for (let i = 0; (i < resultLimit && i < data.numFound); i++) {
           const book = data.docs[i];
           let works = await fetch(`https://openlibrary.org${book.key}.json`);
           let detail = await works.json();
