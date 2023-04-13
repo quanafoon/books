@@ -148,6 +148,7 @@ footer {
   height: 225px;
   overflow: auto;
   word-wrap: break-word;
+  width: inherit;
 }
 
 .result-card p {
