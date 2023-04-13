@@ -140,7 +140,8 @@ document.addEventListener("DOMContentLoaded", function() {
           html += `
               <div>
               <h3>${detail.name}</h3>
-              <p>Born: ${detail.birth_date} ${detail.death_date ? `, Died: ${detail.death_date}` : ''}</p>`
+              <p>Born: ${detail.birth_date} ${detail.death_date ? `, Died: ${detail.death_date}` : ''}</p>
+              <p>Top Work: ${author.top_work}</p>`
           if (detail.bio && detail.bio.value) {
             html += `<p>${detail.bio.value}</p>`;
           } else {
