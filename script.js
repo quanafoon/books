@@ -1,26 +1,35 @@
 document.addEventListener("DOMContentLoaded", function() {
-  const main = document.querySelector('main');
-  const form = document.querySelector('form');
-  const popularGenres = ['fiction', 'nonfiction', 'mystery', 'romance', 'thriller', 'fantasy', 'science_fiction', 'history', 'biography', 'business', 'self-help', 'horror', 'comics', 'young_adult', 'children', 'travel', 'poetry', 'cooking', 'art', 'music', 'sports', 'religion', 'philosophy', 'science', 'nature', 'technology'];
+  const main = document.querySelector('main');  // main object for referencing main markup in index.html
+  const form = document.querySelector('form');  // form object for referencing form markup in index.html
+  const popularGenres = ['fiction', 'nonfiction', 'mystery', 'romance', 'thriller', 'fantasy', 'science_fiction', 'history', 'biography', 'business', 'self-help', 'horror', 'comics', 'young_adult', 'children', 'travel', 'poetry', 'cooking', 'art', 'music', 'sports', 'religion', 'philosophy', 'science', 'nature', 'technology'];  // popularGenres hardcoded array used for randomizing displayed genres on Home Page
 
+  // function renders a 'bookshelf' containing a horizontally scrollable lineup of book covers fetched based on the genre passed into the function
   function createGenreSection(genre) {
+    // create a div object with class named "genre + (passed genre)"
     const genreDiv = document.createElement('div');
     genreDiv.classList.add('genre', genre);
+    // create a heading object where the text is the passed genre
     const titleH2 = document.createElement('h2');
     titleH2.textContent = genre.charAt(0).toUpperCase() + genre.slice(1).replace('_', ' ');
+    // create a div object with class named "scrolling-wrapper"
     const scrollingWrapperDiv = document.createElement('div');
     scrollingWrapperDiv.classList.add('scrolling-wrapper');
+    // create a div object with class named "bookshelf"
     const booksDiv = document.createElement('div');
     booksDiv.classList.add('bookshelf');
+    
+    // append objects to html markup to render them
     scrollingWrapperDiv.appendChild(booksDiv);
     genreDiv.appendChild(titleH2);
     genreDiv.appendChild(scrollingWrapperDiv);
     main.appendChild(genreDiv);
 
+    // fetch a list of books based on passed genre
     fetch(`https://openlibrary.org/subjects/${genre}.json?limit=10`)
       .then(response => response.json())
       .then(data => {
         data.works.forEach(work => {
+          // loop through each book, creating and appending a book div with cover img and name
           const bookDiv = document.createElement('div');
           bookDiv.classList.add('book');
           const coverImg = document.createElement('img');
@@ -39,28 +48,34 @@ document.addEventListener("DOMContentLoaded", function() {
       .catch(error => console.error(error));
   }
 
+  // roll for 5 random unique genres from prebuilt array and store in separate array
   const randomGenres = [];
   for (let i = 0; i < 5; i++) {
     const index = Math.floor(Math.random() * popularGenres.length);
     const genre = popularGenres.splice(index, 1)[0];
     randomGenres.push(genre);
   }
+  // render each horizontally scrollable genre lineup for each randomly chosen genre
   randomGenres.forEach(genre => createGenreSection(genre));
 
+  // allow logo to be clicked, overwriting main markup with previously selected random genres
   const logo = document.querySelector('.logo');
   logo.addEventListener("click", function() {
     main.innerHTML = '';
     randomGenres.forEach(genre => createGenreSection(genre));
   });
 
+  // event listener to know when a search has been submitted and to then perform search function
   form.addEventListener('submit', async function(event) {
-    event.preventDefault();
+    event.preventDefault();  // prevents page redirection
 
+    // stores search key as well as selected search type
     const type = document.querySelector('#headerSelect').value;
     const searchKey = document.querySelector('#headerSearch').value;
     let response;
     let data;
 
+    // creates result listing of fetched books when selected search type is 'title', overwriting main
     if (type === 'title') {
       response = await fetch(`https://openlibrary.org/search.json?title=${searchKey}&limit=10`);
       data = await response.json();
@@ -102,6 +117,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
 
+    // creates result listing of fetched authors when selected search type is 'author', overwriting main
     if (type === 'author') {
       response = await fetch(`https://openlibrary.org/search/authors.json?q=${searchKey}&limit=10`);
       data = await response.json();
@@ -143,6 +159,7 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     }
 
+    // creates result listing of fetched books when selected search type is 'subject', overwriting main
     if (type === 'subject') {
       response = await fetch(`https://openlibrary.org/search.json?subject=${searchKey}&limit=10`);
       data = await response.json();
