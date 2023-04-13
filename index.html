@@ -4,20 +4,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>replit</title>
+  <title>Book Search</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="script.js"></script>
 </head>
 
 <body>
-This is a test
-  <script src="script.js"></script>
+  <header>
+    <div class="header-wrapper">
+      <button class="logo">Book Search</button>
+      <form>
+        <input id="headerSearch" type="text" placeholder="Search...">
+        <select id="headerSelect">
+          <option value="title">Title</option>
+          <option value="author">Author</option>
+          <option value="subject">Subject</option>
+        </select>
+        <button type="submit">Search</button>
+      </form>
+    </div>
+  </header>
 
-  <!--
-  This script places a badge on your repl's full-browser view back to your repl's cover
-  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
-  teal, blue, blurple, magenta, pink!
-  -->
-  <script src="https://replit.com/public/js/replit-badge-v2.js" theme="dark" position="bottom-right"></script>
-</body>
+  <main></main>
 
+  <footer>
+    <div class="footer-wrapper">
+      <div id="left-group">This website uses OpenLibrary APIs</div>
+      <div id="right-group">Code Crusaders</div>
+    </div>
+  </footer>
 </html>

@@ -2,3 +2,160 @@ html {
   height: 100%;
   width: 100%;
 }
+
+body {
+  background-color: gainsboro;
+  margin-top: 60px;
+  margin-bottom: 30px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,.1);
+  z-index: 999;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.logo {
+  border: none;
+  background-color: transparent;
+  font-size: 24px;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+}
+
+form {
+  display: flex;
+  flex-grow: 1;
+  margin: 0 20px;
+}
+
+input[type="text"] {
+  background-color: #f1f1f1;
+  flex-grow: 1;
+  border: none;
+  padding: 10px;
+}
+
+select {
+  margin-left: 10px;
+  padding: 10px;
+  border: none;
+  background-color: #f1f1f1;
+}
+
+button[type="submit"] {
+  padding: 10px;
+  border: none;
+  background-color: #4CAF50;
+  color: #fff;
+  cursor: pointer;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: darkslategrey;
+  box-shadow: 0 -2px 4px rgba(0,0,0,.1);
+  z-index: 999;
+}
+
+.footer-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+#left-group {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+#right-group {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.genre {
+  margin: 20px;
+  width: 100%;
+}
+.genre h2 {
+  text-align: center;
+}
+.scrolling-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+.book {
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+}
+.book img {
+  width: 150px;
+  height: 225px;
+}
+.book p {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.result-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.result-card {
+  background-color: #fff;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+.result-card img {
+  height: 225px;
+  object-fit: cover;
+  width: 150px;
+}
+
+.result-card h3 {
+  margin: 5px;
+  padding: 5px;
+}
+
+.result-card p {
+  text-align: justify;
+  margin: 5px;
+  padding: 5px;
+}
