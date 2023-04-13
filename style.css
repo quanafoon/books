@@ -97,9 +97,10 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin-bottom: 0px;
 }
 .genre {
-  margin: 20px;
+  margin: 40px;
   width: 100%;
 }
 .genre h2 {
