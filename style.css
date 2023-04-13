@@ -169,6 +169,10 @@ footer {
   .logo {
     font-size: 20px;
   }
+
+  #headerSearch {
+    margin-left: 0;
+  }
   
   .genre > p {
     font-size: 20px;
