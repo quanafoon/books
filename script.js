@@ -11,8 +11,8 @@ document.addEventListener("DOMContentLoaded", function() {
     const genreDiv = document.createElement('div');
     genreDiv.classList.add('genre', genre);
     // create a heading object where the text is the passed genre
-    const titleH2 = document.createElement('h2');
-    titleH2.textContent = genre.charAt(0).toUpperCase() + genre.slice(1).replace('_', ' ');
+    const titleHead = document.createElement('p');
+    titleHead.textContent = genre.charAt(0).toUpperCase() + genre.slice(1).replace('_', ' ');
     // create a div object with class named "scrolling-wrapper"
     const scrollingWrapperDiv = document.createElement('div');
     scrollingWrapperDiv.classList.add('scrolling-wrapper');
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     
     // append objects to html markup to render them
     scrollingWrapperDiv.appendChild(booksDiv);
-    genreDiv.appendChild(titleH2);
+    genreDiv.appendChild(titleHead);
     genreDiv.appendChild(scrollingWrapperDiv);
     main.appendChild(genreDiv);
 
@@ -96,13 +96,13 @@ document.addEventListener("DOMContentLoaded", function() {
             html += `<img src="https://via.placeholder.com/150x225?text=No+Image+Available" alt="Book Cover">`
           }
           html += `
-              <div>
-              <h3>${book.title}</h3>
+              <div class="result-text">
+              <p class="result-title">${book.title}</p>
               <p>By: ${book.author_name.join(', ')}</p>`
           if (detail.description && detail.description.value) {
-            html += `<p>${detail.description.value}</p>`;
+            html += `<p style="white-space: pre-wrap;">${detail.description.value}</p>`;
           } else {
-            html += `<p>${detail.description || 'No biography available.'}</p>`;
+            html += `<p style="white-space: pre-wrap;">${detail.description || 'No biography available.'}</p>`;
           }
           html += `
             </div>
@@ -138,14 +138,14 @@ document.addEventListener("DOMContentLoaded", function() {
             html += `<img src="https://via.placeholder.com/150x225?text=No+Image+Available" alt="Author Photo">`
           }
           html += `
-              <div>
-              <h3>${detail.name}</h3>
+              <div class="result-text">
+              <p class="result-title">${detail.name}</p>
               <p>Born: ${detail.birth_date} ${detail.death_date ? `, Died: ${detail.death_date}` : ''}</p>
               <p>Top Work: ${author.top_work}</p>`
           if (detail.bio && detail.bio.value) {
-            html += `<p>${detail.bio.value}</p>`;
+            html += `<p style="white-space: pre-wrap;">${detail.bio.value}</p>`;
           } else {
-            html += `<p>${detail.bio || 'No biography available.'}</p>`;
+            html += `<p style="white-space: pre-wrap;">${detail.bio || 'No biography available.'}</p>`;
           }
           html += `
             </div>
@@ -181,13 +181,13 @@ document.addEventListener("DOMContentLoaded", function() {
             html += `<img src="https://via.placeholder.com/150x225?text=No+Image+Available" alt="Book Cover">`
           }
           html += `
-              <div>
-              <h3>${book.title}</h3>
+              <div class="result-text">
+              <p class="result-title">${book.title}</p>
               <p>By: ${book.author_name.join(', ')}</p>`
           if (detail.description && detail.description.value) {
-            html += `<p>${detail.description.value}</p>`;
+            html += `<p style="white-space: pre-wrap;">${detail.description.value}</p>`;
           } else {
-            html += `<p>${detail.description || 'No biography available.'}</p>`;
+            html += `<p style="white-space: pre-wrap;">${detail.description || 'No biography available.'}</p>`;
           }
           html += `
             </div>
