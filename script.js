@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const popularGenres = ['fiction', 'nonfiction', 'mystery', 'romance', 'thriller', 'fantasy', 'science_fiction', 'history', 'biography', 'business', 'self-help', 'horror', 'comics', 'young_adult', 'children', 'travel', 'poetry', 'cooking', 'art', 'music', 'sports', 'religion', 'philosophy', 'science', 'nature', 'technology'];  // popularGenres hardcoded array used for randomizing displayed genres on Home Page
 
   const resultLimit = 15;  // access point to change results limit across all website fetches
-  
+
   // function renders a 'bookshelf' containing a horizontally scrollable lineup of book covers fetched based on the genre passed into the function
   function createGenreSection(genre) {
     // create a div object with class named "genre + (passed genre)"
@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // create a div object with class named "bookshelf"
     const booksDiv = document.createElement('div');
     booksDiv.classList.add('bookshelf');
-    
+
     // append objects to html markup to render them
     scrollingWrapperDiv.appendChild(booksDiv);
     genreDiv.appendChild(titleHead);
