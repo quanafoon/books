@@ -62,12 +62,14 @@ form {
   margin-left: 10px;
   padding: 10px;
   background-color: var(--search-bar-color);
+  border-radius: 5px 0px 0px 5px;
 }
 
 #headerSelect {
   padding: 10px;
   border: none;
   background-color: var(--search-type-color);
+  border-radius: 0px 5px 5px 0px;
 }
 
 button {
@@ -76,6 +78,7 @@ button {
   background-color: var(--search-button-color);
   color: var(--search-button-text-color);
   cursor: pointer;
+  border-radius: 5px;
 }
 
 main {
@@ -152,7 +155,6 @@ footer {
   display: flex;
   margin: 10px 0px;
   width: 100%;
-  background-color: var(--card-background-color);
   border-radius: 5px;
   text-align: justify;
   content-visibility: auto;
@@ -160,7 +162,10 @@ footer {
 
 .result-card img {
   height: 225px;
-  width: 150px;
+  object-fit: fill;
+  min-width: 150px;
+  max-width: 150px;
+  border-radius: 5px;
 }
 
 .result-text{
@@ -169,6 +174,8 @@ footer {
   word-wrap: break-word;
   width: inherit;
   color: var(--text-color);
+  background-color: var(--card-background-color);
+  border-radius: 5px;
 }
 
 .result-card p {
