@@ -85,7 +85,7 @@ button {
 main {
   display: flex;
   flex-direction: column;
-  margin-top: 60px;
+  margin-top: 67px;
   padding-bottom: 30px;
 }
 
@@ -213,12 +213,39 @@ footer {
   }
 
   main {
-    margin-top: 80px;
+    margin-top: 100px;
   }
 }
 
 @media (max-width: 400px) {
   button[type="submit"] {
     display: none;
+  }
+  
+  main {
+    padding-bottom: 52px;
+  }
+}
+
+@media (max-width: 315px) {
+  form {
+    flex-direction: column;
+  }
+
+  #headerSearch {
+  border-radius: 5px 5px 0px 0px;
+  }
+
+  #headerSelect {
+  border-radius: 0px 0px 5px 5px;
+  }
+
+  main {
+    margin-top: 135px;
+  }
+
+  .result-card img {
+    min-width: 50%;
+    max-width: 50%;
   }
 }
