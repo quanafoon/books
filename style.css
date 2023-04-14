@@ -11,7 +11,8 @@
   --footer-text-color: white;
   --text-color: black;
   --bold-text-color: black;
-  --logo-text-color: black;
+  --logo-background-color: #77a8a8;
+  --logo-text-color: white;
 }
 
 /* general  */
@@ -42,7 +43,7 @@ header {
 
 .logo {
   border: none;
-  background-color: transparent;
+  background-color: var(--logo-background-color);
   font-size: 24px;
   font-weight: bold;
   font-family: inherit;
