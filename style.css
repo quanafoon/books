@@ -1,10 +1,27 @@
+/* define color scheme */
+:root {
+  --header-background-color: white;
+  --search-bar-color: whitesmoke;
+  --search-type-color: lightgray;
+  --search-button-color: #27ae60;
+  --search-button-text-color: white;
+  --body-background-color: gainsboro;
+  --card-background-color: beige;
+  --footer-background-color: darkslategrey;
+  --footer-text-color: white;
+  --text-color: black;
+  --bold-text-color: black;
+  --logo-text-color: black;
+}
+
+/* general  */
 html {
 height: 100%;
 width: 100%;
 }
 
 body {
-  background-color: gainsboro;
+  background-color: var(--body-background-color);
 }
 
 header {
@@ -12,7 +29,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  background-color: white;
+  background-color: var(--header-background-color);
   box-shadow: 0 2px 4px rgba(0,0,0,.1);
   z-index: 999;
 }
@@ -31,7 +48,7 @@ header {
   font-family: inherit;
   cursor: pointer;
   padding: 0;
-  color: inherit;
+  color: var(--logo-text-color);
 }
 
 form {
@@ -44,20 +61,20 @@ form {
   border: none;
   margin-left: 10px;
   padding: 10px;
-  background-color: #ecf6f8;
+  background-color: var(--search-bar-color);
 }
 
 #headerSelect {
   padding: 10px;
   border: none;
-  background-color: #f1f1f1;
+  background-color: var(--search-type-color);
 }
 
 button {
   padding: 10px;
   border: none;
-  background-color: #4CAF50;
-  color: white;
+  background-color: var(--search-button-color);
+  color: var(--search-button-text-color);
   cursor: pointer;
 }
 
@@ -73,7 +90,7 @@ footer {
   bottom: 0;
   left: 0;
   width: 100%;
-  background-color: darkslategrey;
+  background-color: var(--footer-background-color);
   box-shadow: 0 -2px 4px rgba(0,0,0,.1);
   z-index: 999;
 }
@@ -86,13 +103,13 @@ footer {
 
 #left-group, #right-group {
   font-size: 14px;
-  color: white;
+  color: var(--footer-text-color);
 }
 
 /* home genre lineup */
 .genre {
   margin: 20px;
-  background-color: beige;
+  background-color: var(--card-background-color);
   border-radius: 5px;
   padding: 10px;
 }
@@ -102,6 +119,7 @@ footer {
   margin: auto;
   font-size: 25px;
   font-weight: bold;
+  color: var(--bold-text-color);
 }
 
 .scrolling-wrapper {
@@ -121,6 +139,7 @@ footer {
 
 .book p {
   margin-top: 5px;
+  color: var(--text-color);
 }
 
 /* search results */
@@ -133,7 +152,7 @@ footer {
   display: flex;
   margin: 10px 0px;
   width: 100%;
-  background-color: beige;
+  background-color: var(--card-background-color);
   border-radius: 5px;
   text-align: justify;
   content-visibility: auto;
@@ -149,6 +168,7 @@ footer {
   overflow: auto;
   word-wrap: break-word;
   width: inherit;
+  color: var(--text-color);
 }
 
 .result-card p {
@@ -159,6 +179,7 @@ footer {
 .result-title {
   font-size: 20px;
   font-weight: bold;
+  color: var(--bold-text-color);
 }
 
 /* changes when screen is thinner */
