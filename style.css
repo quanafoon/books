@@ -48,7 +48,7 @@ header {
   font-weight: bold;
   font-family: inherit;
   cursor: pointer;
-  padding: 0;
+  padding: 10px;
   color: var(--logo-text-color);
 }
 
